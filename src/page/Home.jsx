@@ -1,14 +1,27 @@
-import React, { useContext, useState } from 'react';
-import {MyContext} from './Means'; // Import MyContext from Means
+import React, { useContext, useEffect, useState } from 'react';
+import {MyContext  } from './Means'; // Import MyContext from Means
 import abi from "./ABI.json"
 import { ethers } from 'ethers';
+import { MyChanging } from './Dark';
+
+
 function Home() {
+
+  const { provider, signer, address } = useContext(MyContext );
+
+
+  const style = useContext(MyChanging);
+
+
+
+  // const {check}=useContext(MyChanging)
+
 
   const [loading, SetLoad]=useState()
 
   const [rand , setRand]=useState()
   
-  const { provider, signer, address } = useContext(MyContext);
+  
 
   const contractAddress="0xF06B7BdFD1F9219C58666d777b4658F2fc09E16E";
 
@@ -41,12 +54,6 @@ function Home() {
 }
 oneall();
 
-// Call oneall outside of the component to avoid re-renders
-
-
-
-//  enter your  values smart contract address  -------------------->
-
 
   const [all , setAll]=useState()
   
@@ -78,9 +85,17 @@ oneall();
 }
 
 
+//Check 
+
+
 
     return (
         <div>
+
+      <h1 style={{ color: style ? 'red' :
+       'black' }}>jugal</h1>
+
+
 
 {loading ? (
   <p>Loading...</p> // Display a loading indicator

@@ -5,14 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import Means from "./page/Means"
+import Dark  from './page/Dark';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+   <Dark>
    <Means>
  <BrowserRouter>
     <App />
  </BrowserRouter>
  </Means>
+ </Dark>
 );
 
 // If you want to start measuring performance in your app, pass a function
